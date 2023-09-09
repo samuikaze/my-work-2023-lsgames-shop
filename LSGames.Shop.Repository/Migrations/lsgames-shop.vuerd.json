@@ -1,0 +1,527 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": true,
+      "columnPrimaryKey": true,
+      "columnUnique": true,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MariaDB",
+    "databaseName": "lsgames_shop",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "carts",
+        "comment": "購物車",
+        "columns": [
+          {
+            "name": "cart_id",
+            "comment": "購物車 PK",
+            "dataType": "BIGINT(11)",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60.14453125,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "85c39c64-b56d-421c-bbd0-479c88ad84e0"
+          },
+          {
+            "name": "user_id",
+            "comment": "帳號 PK",
+            "dataType": "BIGINT(11)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "8f2b1f79-069c-4d7a-ab7c-9665f5c06041"
+          },
+          {
+            "name": "good_id",
+            "comment": "商品 PK",
+            "dataType": "BIGINT(11)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "e666a8d7-576e-420e-b103-4546bd428821"
+          },
+          {
+            "name": "quantity",
+            "comment": "商品數量",
+            "dataType": "INT(11)",
+            "default": "'0'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "cf513f7b-ebe7-428b-8836-31ef88afe1ca"
+          },
+          {
+            "name": "price",
+            "comment": "商品單價",
+            "dataType": "DECIMAL(18,2)",
+            "default": "'0.00'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 93.33642578125,
+              "widthDefault": 60
+            },
+            "id": "85d7445d-074c-488e-a9e0-15a3a3eaadef"
+          },
+          {
+            "name": "created_at",
+            "comment": "建立時間",
+            "dataType": "DATETIME",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 65.39404296875,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "372a980d-cd2f-4472-b7d7-b1c39f626737"
+          },
+          {
+            "name": "updated_at",
+            "comment": "最後更新時間",
+            "dataType": "DATETIME",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 71.31640625,
+              "widthComment": 80,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "a9bc2f46-afc5-4124-bf9d-76df9ec3a17a"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 80,
+          "top": 275,
+          "zIndex": 18,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "5a3df3e7-2ad0-4c6a-9b4d-8bde6a3ceef9"
+      },
+      {
+        "name": "goods",
+        "comment": "商品",
+        "columns": [
+          {
+            "name": "good_id",
+            "comment": "商品 PK",
+            "dataType": "BIGINT(11)",
+            "default": "",
+            "option": {
+              "autoIncrement": true,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "8d23ad94-ef4a-454c-bd82-bcda1a2ec01c"
+          },
+          {
+            "name": "name",
+            "comment": "商品名稱",
+            "dataType": "VARCHAR(50)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 86.3984375,
+              "widthDefault": 60
+            },
+            "id": "09e92b13-25ae-44f5-862c-79525c8a4bfe"
+          },
+          {
+            "name": "preview_imagee",
+            "comment": "商品預覽圖",
+            "dataType": "VARCHAR(50)",
+            "default": "'default.jpg'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 100.87744140625,
+              "widthComment": 67,
+              "widthDataType": 86.3984375,
+              "widthDefault": 74.1728515625
+            },
+            "id": "5476f9e3-f472-4bbc-b728-72a9181760e1"
+          },
+          {
+            "name": "description",
+            "comment": "商品描述",
+            "dataType": "VARCHAR(1024)",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70.58642578125,
+              "widthComment": 60,
+              "widthDataType": 101.4677734375,
+              "widthDefault": 60
+            },
+            "id": "f2d667f9-81ac-4ba1-8c06-328974ff8e33"
+          },
+          {
+            "name": "price",
+            "comment": "商品單價",
+            "dataType": "DECIMAL(18,2)",
+            "default": "'0.00'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 93.33642578125,
+              "widthDefault": 60
+            },
+            "id": "208cdee7-e18e-4719-9b8a-892a735b3138"
+          },
+          {
+            "name": "quantity",
+            "comment": "在庫數量",
+            "dataType": "INT(11)",
+            "default": "'0'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "caa20def-925a-4909-bf57-a036df321167"
+          },
+          {
+            "name": "status",
+            "comment": "商品狀態",
+            "dataType": "TINYINT(4)",
+            "default": "'1'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 68.5107421875,
+              "widthDefault": 60
+            },
+            "id": "720d6986-876e-4103-bfe5-240430248a1d"
+          },
+          {
+            "name": "created_user_id",
+            "comment": "建立帳號 PK",
+            "dataType": "BIGINT(11)",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 96.9990234375,
+              "widthComment": 73.14453125,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "5eb2f6c6-b0cb-423d-a7f0-7a3b69afff8a"
+          },
+          {
+            "name": "created_at",
+            "comment": "建立時間",
+            "dataType": "DATETIME",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 65.39404296875,
+              "widthComment": 60,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "7d40327d-b496-494c-a7b9-fa866c8c2505"
+          },
+          {
+            "name": "updated_user_id",
+            "comment": "最後更新帳號 PK",
+            "dataType": "BIGINT(11)",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 102.92138671875,
+              "widthComment": 99.14453125,
+              "widthDataType": 68.1552734375,
+              "widthDefault": 60
+            },
+            "id": "298b2f39-6b82-45ca-b055-017f949d87dc"
+          },
+          {
+            "name": "updated_at",
+            "comment": "最後更新時間",
+            "dataType": "DATETIME",
+            "default": "NULL",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 71.31640625,
+              "widthComment": 80,
+              "widthDataType": 64.60693359375,
+              "widthDefault": 60
+            },
+            "id": "ad8e86ee-3ebe-4176-95ba-a99617efe074"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 733,
+          "top": 121,
+          "zIndex": 19,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "4c348fe4-7e38-4a12-81e5-2ff5f7f6b8f2"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "4c348fe4-7e38-4a12-81e5-2ff5f7f6b8f2",
+          "columnIds": [
+            "8d23ad94-ef4a-454c-bd82-bcda1a2ec01c"
+          ],
+          "x": 733,
+          "y": 268.25,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "5a3df3e7-2ad0-4c6a-9b4d-8bde6a3ceef9",
+          "columnIds": [
+            "e666a8d7-576e-420e-b103-4546bd428821"
+          ],
+          "x": 538.65283203125,
+          "y": 381.25,
+          "direction": "right"
+        },
+        "constraintName": "fk_goods_to_carts",
+        "visible": true,
+        "id": "ec769aa8-7617-4585-9482-bf6e366a82f0"
+      }
+    ]
+  }
+}

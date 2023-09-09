@@ -2,23 +2,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <APPLICATION_NAME>
+  name: lsgames-shop-backend
   labels:
-    app: <APPLICATION_NAME>
-  namespace: <NAMESPACE>
+    app: lsgames-shop-backend
+  namespace: smkz-for-work
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: <APPLICATION_NAME>
+      app: lsgames-shop-backend
   template:
     metadata:
       labels:
-        app: <APPLICATION_NAME>
+        app: lsgames-shop-backend
     spec:
       containers:
-        - name: <APPLICATION_NAME>
-          image: $secrets.REGISTRY_URL/<APPLICATION_NAME>:latest
+        - name: lsgames-shop-backend
+          image: $secrets.REGISTRY_URL/lsgames-shop-backend:latest
           resources:
             requests:
               memory: 512Mi
@@ -30,38 +30,43 @@ spec:
             - containerPort: 80
               protocol: TCP
           env:
-            - name: ConnectionStrings__Weathers
+            - name: ConnectionStrings__LSGamesShop
               valueFrom:
                 secretKeyRef:
-                  name: <SECRET_NAME>
+                  name: lsgames-shop-secrets
                   key: database.host
-            - name: Credentials__Weathers__Username
+            - name: Credentials__LSGamesShop__Username
               valueFrom:
                 secretKeyRef:
-                  name: <SECRET_NAME>
+                  name: lsgames-shop-secrets
                   key: database.username
-            - name: Credentials__Weathers__Password
+            - name: Credentials__LSGamesShop__Password
               valueFrom:
                 secretKeyRef:
-                  name: <SECRET_NAME>
+                  name: lsgames-shop-secrets
                   key: database.password
             - name: Swagger__RoutePrefix
               valueFrom:
                 configMapKeyRef:
-                  name: <CONFIG_MAP_NAME>
+                  name: lsgames-shop-configs
                   key: swagger.route.prefix
+            - name: Services__SingleSignOn
+              valueFrom:
+                configMapKeyRef:
+                  name: lsgames-shop-configs
+                  key: services.singlesignon
 
 ---
 # service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: <APPLICATION_NAME>
-  namespace: <NAMESPACE>
+  name: lsgames-shop-backend
+  namespace: smkz-for-work
 spec:
   type: ClusterIP
   selector:
-    app: <APPLICATION_NAME>
+    app: lsgames-shop-backend
   ports:
     - protocol: TCP
       port: 80

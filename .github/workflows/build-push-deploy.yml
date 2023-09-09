@@ -37,7 +37,7 @@ jobs:
       # secrets.REGISTRY_URL 為映像檔伺服器的 URL
       # vars.APP_NAME 為應用程式的名稱，也就是這個映像檔的名稱
       # github.sha 用作區分版本，這個值是 Git commit 時產生的 hash 值
-      run: docker build . --file DotNet7.Template.Api/Dockerfile --tag ${{ secrets.REGISTRY_URL }}/${{ vars.APP_NAME }}:${{ github.sha }}
+      run: docker build . --file LSGames.Shop.Api/Dockerfile --tag ${{ secrets.REGISTRY_URL }}/${{ vars.APP_NAME }}:${{ github.sha }}
     - name: Login to private registry
       uses: docker/login-action@v2.1.0
       with:
@@ -50,7 +50,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./
-        file: ./DotNet7.Template.Api/Dockerfile
+        file: ./LSGames.Shop.Api/Dockerfile
         builder: ${{ steps.buildx.outputs.name }}
         push: true
         tags: '${{ secrets.REGISTRY_URL }}/${{ vars.APP_NAME }}:${{ github.sha }}'
@@ -102,7 +102,7 @@ jobs:
             .kubernetes/deployment.yaml
           # 要部署的應用程式所在 namespace
           # Service Account 所在的 namespace 也要一樣，否則部署會因權限被拒絕
-          namespace: <NAMESPACE>
+          namespace: smkz-for-work
           # 這邊宣告部署檔中的 image
           # 由於 image 版本是 git commit 的 hash 字串
           # 在這邊宣告完後，這樣這個 Action 就會去找 yaml 中 image 欄位符合 ${{ secrets.REGISTRY_URL }}/${{ vars.APP_NAME }} 者取代其版本的字串
