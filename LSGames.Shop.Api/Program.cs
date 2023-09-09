@@ -23,8 +23,8 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger(config =>
     {
         string? path = app.Configuration.GetValue<string>("Swagger:RoutePrefix");
@@ -40,7 +40,7 @@ if (app.Environment.IsDevelopment())
         }
     });
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
