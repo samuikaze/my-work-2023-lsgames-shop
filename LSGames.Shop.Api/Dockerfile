@@ -7,17 +7,17 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["DotNet7.Template.Api/DotNet7.Template.Api.csproj", "DotNet7.Template.Api/"]
-COPY ["DotNet7.Template.Repository/DotNet7.Template.Repository.csproj", "DotNet7.Template.Repository/"]
-RUN dotnet restore "DotNet7.Template.Api/DotNet7.Template.Api.csproj"
+COPY ["LSGames.Shop.Api/LSGames.Shop.Api.csproj", "LSGames.Shop.Api/"]
+COPY ["LSGames.Shop.Repository/LSGames.Shop.Repository.csproj", "LSGames.Shop.Repository/"]
+RUN dotnet restore "LSGames.Shop.Api/LSGames.Shop.Api.csproj"
 COPY . .
-WORKDIR "/src/DotNet7.Template.Api"
-RUN dotnet build "DotNet7.Template.Api.csproj" -c Release -o /app/build
+WORKDIR "/src/LSGames.Shop.Api"
+RUN dotnet build "LSGames.Shop.Api.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "DotNet7.Template.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "LSGames.Shop.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "DotNet7.Template.Api.dll"]
+ENTRYPOINT ["dotnet", "LSGames.Shop.Api.dll"]
