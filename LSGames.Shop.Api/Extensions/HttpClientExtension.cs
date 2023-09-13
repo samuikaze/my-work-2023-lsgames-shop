@@ -2,9 +2,9 @@ using LSGames.Shop.Api.HttpClients;
 
 namespace LSGames.Shop.Api.Extensions
 {
-    public class HttpClientExtension
+    public static class HttpClientExtension
     {
-        public static IServiceCollection ConfigureHttpClients(IServiceCollection serviceCollection)
+        public static IServiceCollection ConfigureHttpClients(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddHttpClient<SingleSignOnClient>();
 
