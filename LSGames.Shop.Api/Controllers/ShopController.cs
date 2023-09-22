@@ -71,6 +71,66 @@ namespace LSGames.Shop.Api.Controllers
         }
 
         /// <summary>
+        /// 上架新商品
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("good")]
+        [TypeFilter(typeof(VerifyAccessTokenAuthorizeAttribute))]
+        public async Task<GoodViewModel> CreateGood([FromBody] GoodViewModel request)
+        {
+            UserServiceModel user = (UserServiceModel)HttpContext.Items["User"]!;
+
+            return _mapper.Map<GoodViewModel>(
+                await _shopService.CreateGood(
+                    user,
+                    _mapper.Map<GoodServiceModel>(request)));
+        }
+
+        /// <summary>
+        /// 更新商品
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPatch("good")]
+        [TypeFilter(typeof(VerifyAccessTokenAuthorizeAttribute))]
+        public async Task<ActionResult<GoodViewModel>> UpdateGood([FromBody] GoodViewModel request)
+        {
+            UserServiceModel user = (UserServiceModel)HttpContext.Items["User"]!;
+            try
+            {
+                return _mapper.Map<GoodViewModel>(
+                    await _shopService.UpdateGood(
+                        user,
+                        _mapper.Map<GoodServiceModel>(request)));
+            }
+            catch (NullReferenceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// 下架 (刪除) 商品
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpDelete("good")]
+        [TypeFilter(typeof(VerifyAccessTokenAuthorizeAttribute))]
+        public async Task<ActionResult<int>> DeleteGood([FromBody] GoodViewModel request)
+        {
+            try
+            {
+                return await _shopService.DeleteGood(
+                    _mapper.Map<GoodServiceModel>(request));
+            }
+            catch (NullReferenceException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
         /// 儲存購物車內容
         /// </summary>
         /// <param name="request"></param>
