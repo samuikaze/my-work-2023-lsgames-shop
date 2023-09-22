@@ -1,5 +1,4 @@
 using LSGames.Shop.Api.Models.ServiceModels;
-using LSGames.Shop.Repository.Models;
 
 namespace LSGames.Shop.Api.Services
 {
@@ -24,31 +23,6 @@ namespace LSGames.Shop.Api.Services
         /// <param name="request"></param>
         /// <returns></returns>
         public Task<List<GoodServiceModel>> GetCartGoods(GetCartGoodsRequestServiceModel request);
-
-        /// <summary>
-        /// 上架新商品
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        public Task<GoodServiceModel> CreateGood(UserServiceModel user, GoodServiceModel request);
-
-        /// <summary>
-        /// 更新商品
-        /// </summary>
-        /// <param name="user"></param>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException"></exception>
-        public Task<GoodServiceModel> UpdateGood(UserServiceModel user, GoodServiceModel request);
-
-        /// <summary>
-        /// 下架 (刪除) 商品
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        /// <exception cref="NullReferenceException"></exception>
-        public Task<int> DeleteGood(GoodServiceModel request);
 
         /// <summary>
         /// 儲存購物車內容
