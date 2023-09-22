@@ -212,7 +212,7 @@
           "active": false,
           "left": 80,
           "top": 275,
-          "zIndex": 18,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60
         },
@@ -272,7 +272,7 @@
           {
             "name": "preview_imagee",
             "comment": "商品預覽圖",
-            "dataType": "VARCHAR(50)",
+            "dataType": "VARCHAR(1024)",
             "default": "'default.jpg'",
             "option": {
               "autoIncrement": false,
@@ -287,7 +287,7 @@
               "pfk": false,
               "widthName": 100.87744140625,
               "widthComment": 67,
-              "widthDataType": 86.3984375,
+              "widthDataType": 101.4677734375,
               "widthDefault": 74.1728515625
             },
             "id": "5476f9e3-f472-4bbc-b728-72a9181760e1"
@@ -481,7 +481,7 @@
           "active": true,
           "left": 733,
           "top": 121,
-          "zIndex": 19,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
